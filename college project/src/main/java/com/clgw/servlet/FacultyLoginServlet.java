@@ -30,7 +30,7 @@ public class FacultyLoginServlet extends HttpServlet {
 				String email=req.getParameter("femail");
 				String password=req.getParameter("fpassword");
 				
-				System.out.println("Login attempt with email: " + email + " and password: " + password);
+				//System.out.println("Login attempt with email: " + email + " and password: " + password);
 				
 				//create a object of FacultyDao class
 				FacultyDao facultydao=new FacultyDao(ConnectionProvider.getConnection());

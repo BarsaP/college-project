@@ -1,8 +1,20 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-    
+  <%@page import="com.clgw.javabeans.Student" %>  
+  <%@page import="com.clgw.dao.StudentDao" %>   
+<%@page import="com.clgw.helper.ConnectionProvider" %> 
+<%@page import="com.clgw.servlet.StudentLogoutServlet" %>
+<%@page import="java.util.List" %>   
+ 
+ <!-- 	configure the Student login -->
+<% 
+	Student student=(Student)session.getAttribute("currentUserStudent");
+	if(student==null){
+		response.sendRedirect("student.jsp");
+		return;
+	}
+%>
+   
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +32,48 @@
     </style>
 </head>
 <body>
-                <!--     footer section -->
+<!--     navbar -->
+<%@include file="navbar.jsp" %>
+<ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="FacultyLogoutServlet">Logout</a>
+        </li>
+      </ul>
+ 
+ <!--  student -->
+<section>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                  <div class="col-lg-12 event">
+                    <p class="header-background">Student Details</p>
+                     <ul>
+                      <!-- jsp code -->
+                        
+                        <%
+                        
+                        StudentDao studentDao=new StudentDao(ConnectionProvider.getConnection());
+                        Student studentDetails = studentDao.getUserByEmailAndPassword(student.getEmail(), student.getPassword());
+                        
+                        if(studentDetails != null){
+                        %>
+                            <li> ID: <%= studentDetails.getId()%></li>
+                            <li> Registration No : <%= studentDetails.getRedgno()%></li>
+                            <li> Name: <%= studentDetails.getName()%></li>
+                            <li> Email: <%=studentDetails.getEmail()%></li>
+                            <li> Gender: <%=studentDetails.getGender()%></li>
+                            <li> Branch: <%=studentDetails.getBranch()%></li>
+                            
+                        <%
+                        }else{
+                        	out.println("No details found for the faculty.");
+                        }
+                        %>
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </section>     
+ <!--     footer section -->
 <%@include file="footer.jsp" %>
     
     

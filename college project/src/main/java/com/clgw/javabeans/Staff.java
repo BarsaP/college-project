@@ -113,10 +113,4 @@ public class Staff {
 		this.profile = profile;
 	}
 	
-	
-	
-	
-	
-	
-	
 }

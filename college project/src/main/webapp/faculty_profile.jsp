@@ -4,6 +4,7 @@
 <%@page import="com.clgw.javabeans.Faculty" %>  
 <%@page import="com.clgw.dao.FacultyDao" %>   
 <%@page import="com.clgw.helper.ConnectionProvider" %> 
+<%@page import="com.clgw.servlet.FacultyLogoutServlet" %>
 <%@page import="java.util.List" %> 
     
  <!-- 	configure the Faculty login -->
@@ -35,6 +36,11 @@
 <body>
  <!--     navbar -->
 <%@include file="navbar.jsp" %>
+<ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="FacultyLogoutServlet">Logout</a>
+        </li>
+      </ul>
 
 <!--  faculty -->
 <section>
@@ -53,11 +59,11 @@
                         if(facultyDetails != null){
                         %>
                         
-                            <li> <span class="faculty header-background">Name: </span> <%= facultyDetails.getName()%></li>
-                            <li> <span class="faculty header-background">  <%=facultyDetails.getEmail()%></li>
-                            <li> <span class="faculty header-background">  <%=facultyDetails.getGender()%></li>
-                            <li> <span class="faculty header-background">  <%=facultyDetails.getSubject()%></li>
-                            <li> <span class="faculty header-background">  <%=facultyDetails.getProfile()%></li>
+                            <li> Name: <%= facultyDetails.getName()%></li>
+                            <li> Email: <%=facultyDetails.getEmail()%></li>
+                            <li> Gender: <%=facultyDetails.getGender()%></li>
+                            <li> Subject: <%=facultyDetails.getSubject()%></li>
+                            <li> About: <%=facultyDetails.getAbout()%></li>
                             
                         <%
                         }else{
@@ -69,11 +75,8 @@
             </div>
         </div>
     </section>
-
-               <!--     footer section -->
+ <!--     footer section -->
 <%@include file="footer.jsp" %>
-    
-    
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

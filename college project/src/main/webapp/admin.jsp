@@ -1,6 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@ page import="com.clgw.javabeans.Message" %>
+     
+     <%
+    String savedEmail = "";
+    String savedPassword = "";
+    Cookie[] cookies = request.getCookies();
+    if (cookies != null) {
+        for (Cookie cookie : cookies) {
+            if ("adminEmail".equals(cookie.getName())) {
+                savedEmail = cookie.getValue();
+            }
+            if ("adminPassword".equals(cookie.getName())) {
+                savedPassword = cookie.getValue();
+            }
+        }
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,7 +73,12 @@
                                         <label for="exampleInputPassword1" class="form-label">Password</label>
                                         <input type="password" name="Apassword" required class="form-control" id="exampleInputPassword1">
                                     </div>
-                    
+                                   
+                                   <div class="form-group">
+								   <input type="checkbox" name="remember-me" id="remember-me"
+									class="agree-term" /> <label for="remember-me"
+									class="label-agree-term"><span><span></span></span>Remember
+									me</label>
                                     <div class="container text-center">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>

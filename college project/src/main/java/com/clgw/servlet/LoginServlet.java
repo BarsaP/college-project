@@ -30,12 +30,14 @@ public class LoginServlet extends HttpServlet {
 		try(PrintWriter pw=res.getWriter();){
 			//login
 			//fetch all user email and passowrd
-			String studEmail=req.getParameter("email");
-			String studPasw=req.getParameter("password");
+			String studEmail=req.getParameter("semail");
+			String studPasw=req.getParameter("spassword");
+			//String rememberMe = req.getParameter("rememberMe");
+			System.out.println("Login attempt with email: " + studEmail + " and password: " + studPasw);
 			//create the object of StudentDao claaa to pass the jdbc url
-			StudentDao dao=new StudentDao(ConnectionProvider.getConnection());
+			StudentDao studentdao=new StudentDao(ConnectionProvider.getConnection());
 			//check the student email and password is present in the database or not
-			Student stu=dao.getUserByEmailAndPassword(studEmail,studPasw);
+			Student stu = studentdao.getUserByEmailAndPassword(studEmail,studPasw);
 			
 			if(stu==null) {
 				
@@ -52,7 +54,7 @@ public class LoginServlet extends HttpServlet {
 			else {
 				//login success
 				HttpSession s=req.getSession();
-				s.setAttribute("currentUser", stu);
+				s.setAttribute("currentUserStudent", stu);
 				res.sendRedirect("studentprofile.jsp");
 			}
 		}

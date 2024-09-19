@@ -60,7 +60,7 @@ public class FacultyDao {
 			ps.setString(1, email);
 			ps.setString(2, password);
 			
-			System.out.println("Executing query: " + ps.toString());
+			//System.out.println("Executing query: " + ps.toString());
 			
 			ResultSet rs=ps.executeQuery();
 			
@@ -74,9 +74,8 @@ public class FacultyDao {
 				faculty.setPassword(rs.getString("password"));
 				faculty.setGender(rs.getString("gender"));
 				faculty.setSubject(rs.getString("subject"));
-				faculty.setProfile(rs.getString("profile"));
+				faculty.setAbout(rs.getString("about"));
 				
-				System.out.println("Faculty retrieved: " + faculty.getName());
             } else {
                 System.out.println("No faculty found with the provided email and password.");
             }
@@ -92,14 +91,14 @@ public class FacultyDao {
 	public boolean updateFaculty(Faculty faculty) {
 		boolean f=false;
 		try {
-			String query="UPDATE FACULTY SET NAME=? , EMAIL=?, PASSWORD=?,GENDER=?,SUBJECT=?,PROFILE=? WHERE ID=?";
+			String query="UPDATE FACULTY SET NAME=? , EMAIL=?, PASSWORD=?,GENDER=?,SUBJECT=?,ABOUT=? WHERE ID=?";
 			PreparedStatement ps=con.prepareStatement(query);
 			ps.setString(1, faculty.getName());
 			ps.setString(2, faculty.getEmail());
 			ps.setString(3, faculty.getPassword());
 			ps.setString(4, faculty.getGender());
 			ps.setString(5, faculty.getSubject());
-			ps.setString(6, faculty.getProfile());
+			ps.setString(6, faculty.getAbout());
 			ps.setInt(7, faculty.getId());
 			
 			ps.executeUpdate();

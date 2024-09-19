@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import com.clgw.javabeans.Message;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -30,6 +31,16 @@ public class AdminLogoutServlet extends HttpServlet {
 					HttpSession s1=req.getSession();
 					
 					s1.removeAttribute("currentUserAdmin");
+					//Remove the login cookie
+					Cookie[] cookies = req.getCookies();
+					if(cookies != null) {
+						for(Cookie cookie : cookies) {
+							if(cookie.getName().equals("user")) {
+								cookie.setMaxAge(0);
+								res.addCookie(cookie);
+							}
+						}
+					}
 					//create the Message class object
 					Message msg1=new Message("Logout Successfully ....." , "Success" , "alert-success");
 					s1.setAttribute("AdminMessage", msg1);

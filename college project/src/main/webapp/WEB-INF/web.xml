@@ -27,6 +27,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>FacultyLogoutServlet</display-name>
+    <servlet-name>FacultyLogoutServlet</servlet-name>
+    <servlet-class>com.clgw.servlet.FacultyLogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FacultyLogoutServlet</servlet-name>
+    <url-pattern>/FacultyLogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>AdminLoginServlet</display-name>
     <servlet-name>AdminLoginServlet</servlet-name>
     <servlet-class>com.clgw.servlet.AdminLoginServlet</servlet-class>

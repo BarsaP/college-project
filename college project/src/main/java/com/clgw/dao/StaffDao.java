@@ -14,14 +14,14 @@ private Connection con;
 	}
 	
 	
-	//method to insert Student data into database
+	//method to insert Staff data into database
 	
 			public boolean addStaff(Staff stf) {
 				boolean f=false;
 				
 				try {
-					//Faculty--->Database
-					//INSERT INTO `collegewebsite`.`faculty` (`name`, `email`, `password`, `gender`, `subject`, `about`) VALUES ('hari', 'hari123@gmail.com', '1234', 'male', 'python', 'teacher');
+					//Staff--->Database
+					//INSERT INTO `collegewebsite`.`staff` (`name`, `email`, `password`, `gender`, `subject`, `about`) VALUES ('hari', 'hari123@gmail.com', '1234', 'male', 'python', 'teacher');
 					String query="INSERT INTO STAFF(NAME,GENDER,EMAIL,PASSWORD,ABOUT) VALUES(?,?,?,?,?)";
 					PreparedStatement ps=this.con.prepareStatement(query);
 					

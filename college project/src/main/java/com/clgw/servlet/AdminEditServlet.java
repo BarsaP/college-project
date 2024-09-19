@@ -55,6 +55,12 @@ public class AdminEditServlet extends HttpServlet {
 			HttpSession s=req.getSession();
 			Admin adm=(Admin)s.getAttribute("currentUserAdmin");
 			
+			if (adm == null) {
+			    System.out.println("adm is null before setting name");
+			} else {
+			    adm.setName("Some Name");
+			}
+
 			//set the newly getting value to the javabeans of Admin class getter setter method
 			adm.setName(name);
 			adm.setGender(gender);

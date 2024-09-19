@@ -8,7 +8,6 @@ public class Student {
 	private String email;
 	private String password;
 	private String gender;
-	private String profile;
 	private String about;
 	private String branch;
 	
@@ -106,14 +105,14 @@ public class Student {
 	}
 
 
-	public String getProfile() {
-		return profile;
-	}
-
-
-	public void setProfile(String profile) {
-		this.profile = profile;
-	}
+//	public String getProfile() {
+//		return profile;
+//	}
+//
+//
+//	public void setProfile(String profile) {
+//		this.profile = profile;
+//	}
 
 	public String getAbout() {
 		return about;
@@ -132,14 +131,4 @@ public class Student {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
-	
-
-	
-	
-
-	
-	
-	
-	
-
 }

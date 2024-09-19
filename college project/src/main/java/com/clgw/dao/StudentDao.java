@@ -61,6 +61,7 @@ public class StudentDao {
 				ps.setString(1, email);
 				ps.setString(2, password);
 				
+				//System.out.println("Executing query: " + ps.toString());
 				//execute the query
 				ResultSet rs=ps.executeQuery();
 				if(rs.next()) {
@@ -72,7 +73,7 @@ public class StudentDao {
 					stud.setEmail(rs.getString("email"));
 					stud.setPassword(rs.getString("password"));
 					stud.setGender(rs.getString("gender"));
-					stud.setProfile(rs.getString("profile"));
+					//stud.setProfile(rs.getString("profile"));
 					stud.setBranch(rs.getString("branch"));
 					
 					

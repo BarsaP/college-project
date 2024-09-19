@@ -99,11 +99,11 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Staff</a></li>
+                            <li><a class="dropdown-item" href="staff.jsp">Staff</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Students</a></li>
+                            <li><a class="dropdown-item" href="student.jsp">Students</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

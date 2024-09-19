@@ -10,7 +10,6 @@ public class Faculty {
 	private String gender;
 	private String subject;
 	private String about;
-	private String profile;
 	
 	
 	public Faculty(int id, String name, String email, String password, String gender, String subject,String about,
@@ -22,7 +21,6 @@ public class Faculty {
 		this.gender = gender;
 		this.subject = subject;
 		this.about=about;
-		this.profile = profile;
 	}
 	
 	
@@ -103,15 +101,6 @@ public class Faculty {
 		this.subject = subject;
 	}
 
-
-	public String getProfile() {
-		return profile;
-	}
-
-
-	public void setProfile(String profile) {
-		this.profile = profile;
-	}
 
 	public String getAbout() {
 		return about;
